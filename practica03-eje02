@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int r, h, area, volumen;
+
+    cout << "Ingrese el radio: ";
+    cin >> r;
+
+    cout << "Ingrese la altura: ";
+    cin >> h;
+
+    area = (int)(2 * 3.1416 * r * (r + h));
+    volumen = (int)(3.1416 * r * r * h);
+
+    cout << "El area es: " << area << endl;
+    cout << "El volumen es: " << volumen << endl;
+
+    return 0;
+}

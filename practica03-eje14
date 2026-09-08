@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int pollo, carne, queso, refresco, agua;
+    int subPollo, subCarne, subQueso, subRefresco, subAgua;
+    int totalCantidad, totalPagar;
+
+    cout << "Ingrese cantidad de Saltena de pollo: ";
+    cin >> pollo;
+
+    cout << "Ingrese cantidad de Saltena de carne: ";
+    cin >> carne;
+
+    cout << "Ingrese cantidad de Empanada de queso: ";
+    cin >> queso;
+
+    cout << "Ingrese cantidad de Refresco (500ml): ";
+    cin >> refresco;
+
+    cout << "Ingrese cantidad de Agua mineral: ";
+    cin >> agua;
+
+    subPollo = (int)(pollo * 3.50);
+    subCarne = carne * 4;
+    subQueso = queso * 3;
+    subRefresco = refresco * 5;
+    subAgua = agua * 3;
+
+    totalCantidad = pollo + carne + queso + refresco + agua;
+    totalPagar = subPollo + subCarne + subQueso + subRefresco + subAgua;
+
+    cout << "\nSubtotal Saltena de pollo: " << subPollo << " Bs" << endl;
+    cout << "Subtotal Saltena de carne: " << subCarne << " Bs" << endl;
+    cout << "Subtotal Empanada de queso: " << subQueso << " Bs" << endl;
+    cout << "Subtotal Refresco (500ml): " << subRefresco << " Bs" << endl;
+    cout << "Subtotal Agua mineral: " << subAgua << " Bs" << endl;
+
+    cout << "Total unidades: " << totalCantidad << endl;
+    cout << "TOTAL GENERAL A PAGAR: " << totalPagar << " Bs" << endl;
+
+    return 0;
+}

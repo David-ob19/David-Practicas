@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int A, B, C, D, E, F;
+    int det, detX, detY;
+    int X, Y;
+
+    cout << "Ingrese A: ";
+    cin >> A;
+    cout << "Ingrese B: ";
+    cin >> B;
+    cout << "Ingrese C: ";
+    cin >> C;
+    cout << "Ingrese D: ";
+    cin >> D;
+    cout << "Ingrese E: ";
+    cin >> E;
+    cout << "Ingrese F: ";
+    cin >> F;
+
+    det = (A * E) - (B * D);
+    detX = (C * E) - (B * F);
+    detY = (A * F) - (C * D);
+
+    if (det != 0) {
+        X = detX / det;
+        Y = detY / det;
+        cout << "X = " << X << endl;
+        cout << "Y = " << Y << endl;
+    } else {
+        if (detX == 0 && detY == 0) {
+            cout << "El sistema tiene infinitas soluciones." << endl;
+        } else {
+            cout << "El sistema no tiene solucion." << endl;
+        }
+    }
+
+    return 0;
+}

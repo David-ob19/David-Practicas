@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int C;
+    int F, K, Ra;
+
+    cout << "Ingrese la temperatura en Celsius: ";
+    cin >> C;
+
+    F = (int)((C * 9 / 5) + 32);
+    K = (int)(C + 273.15);
+    Ra = (int)((C + 273.15) * 9 / 5);
+
+    cout << "Fahrenheit: " << F << endl;
+    cout << "Kelvin: " << K << endl;
+    cout << "Rankine: " << Ra << endl;
+
+    return 0;
+}

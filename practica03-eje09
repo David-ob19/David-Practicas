@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int totalMinutos;
+    int dias, horas, minutos;
+
+    cout << "Ingrese la cantidad de minutos: ";
+    cin >> totalMinutos;
+
+    dias = totalMinutos / 1440;
+    horas = (totalMinutos % 1440) / 60;
+    minutos = totalMinutos % 60;
+
+    cout << dias << " dias, " << horas << " horas, " << minutos << " minutos" << endl;
+
+    return 0;
+}

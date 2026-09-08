@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int p1, p2, ef, pi, notaFinal;
+
+    cout << "Ingrese el primer parcial (25 pts): ";
+    cin >> p1;
+
+    cout << "Ingrese el segundo parcial (25 pts): ";
+    cin >> p2;
+
+    cout << "Ingrese el examen final (30 pts): ";
+    cin >> ef;
+
+    cout << "Ingrese el proyecto integrador (20 pts): ";
+    cin >> pi;
+
+    notaFinal = p1 + p2 + ef + pi;
+
+    cout << "Nota Final: " << notaFinal << endl;
+
+    if (notaFinal >= 51) {
+        cout << "Estado: APROBO" << endl;
+    } else {
+        cout << "Estado: REPROBO" << endl;
+    }
+
+    return 0;
+}

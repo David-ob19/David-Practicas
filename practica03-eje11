@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int kWh;
+    int monto;
+
+    cout << "Ingrese el consumo mensual en kWh: ";
+    cin >> kWh;
+
+    if (kWh == 0) {
+        cout << "SIN CONSUMO REGISTRADO" << endl;
+    } else {
+        if (kWh <= 100) {
+            monto = (int)(kWh * 0.30) + 8;
+            cout << "Categoria: Basica" << endl;
+        } else if (kWh <= 300) {
+            monto = (int)(kWh * 0.50) + 8;
+            cout << "Categoria: Media" << endl;
+        } else if (kWh <= 600) {
+            monto = (int)(kWh * 0.75) + 8;
+            cout << "Categoria: Alta" << endl;
+        } else {
+            monto = (int)(kWh * 1.10) + 8;
+            cout << "Categoria: Industrial" << endl;
+        }
+
+        cout << "Monto a pagar: Bs " << monto << endl;
+    }
+
+    return 0;
+}

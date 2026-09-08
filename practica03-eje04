@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int salario, meses, aguinaldo;
+
+    cout << "Ingrese el salario mensual: ";
+    cin >> salario;
+
+    cout << "Ingrese los meses trabajados en el ano: ";
+    cin >> meses;
+
+    aguinaldo = (salario * meses) / 12;
+
+    cout << "Aguinaldo correspondiente: " << aguinaldo << endl;
+
+    return 0;
+}

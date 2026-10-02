@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    double x, suma = 0.0;
+
+    cout << "Ingrese X (real) y N (cantidad de terminos): ";
+    cin >> x >> n;
+
+    int impar = 1;
+    for (int i = 1; i <= n; i++) {
+        // Calculo de la potencia X^impar
+        double potencia = 1.0;
+        for (int j = 1; j <= impar; j++) {
+            potencia *= x;
+        }
+
+        // Calculo del factorial (impar)!
+        long long factorial = 1;
+        for (int j = 1; j <= impar; j++) {
+            factorial *= j;
+        }
+
+        // Alternancia de signos mediante modulo
+        if (i % 2 != 0) {
+            suma += potencia / factorial;
+        } else {
+            suma -= potencia / factorial;
+        }
+
+        impar += 2; // Siguiente numero impar
+    }
+
+    cout << "S = " << suma << endl;
+
+    return 0;
+}

@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a, b;
+
+    cout << "Ingrese dos numeros enteros: ";
+    cin >> a >> b;
+
+    int temp_a = a;
+    int temp_b = b;
+
+    while (temp_b != 0) {
+        int residuo = temp_a % temp_b;
+        temp_a = temp_b;
+        temp_b = residuo;
+    }
+
+    cout << "MCD(" << a << ", " << b << ") = " << temp_a << endl;
+
+    return 0;
+}

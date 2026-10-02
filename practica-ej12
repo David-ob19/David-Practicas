@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a, b;
+
+    cout << "Ingrese dos numeros enteros: ";
+    cin >> a >> b;
+
+    // Calculo del MCD usando el algoritmo de Euclides
+    int temp_a = a;
+    int temp_b = b;
+
+    while (temp_b != 0) {
+        int residuo = temp_a % temp_b;
+        temp_a = temp_b;
+        temp_b = residuo;
+    }
+
+    int mcd = temp_a;
+
+    // Calculo del MCM con la formula MCM = (A * B) / MCD
+    long long mcm = ((long long)a / mcd) * b;
+
+    cout << "MCM(" << a << ", " << b << ") = " << mcm << endl;
+
+    return 0;
+}

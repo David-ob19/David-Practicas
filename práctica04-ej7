@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    long long factorial = 1;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        factorial *= i;
+    }
+
+    cout << "FAC(" << n << ") = " << factorial << endl;
+
+    return 0;
+}

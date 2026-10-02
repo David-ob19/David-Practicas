@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    long long f0 = 1, f1 = 1, fn = 1;
+
+    for (int i = 2; i <= n; i++) {
+        fn = f0 + f1;
+        f0 = f1;
+        f1 = fn;
+    }
+
+    cout << "F(" << n << ") = " << fn << endl;
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    bool esValido = true;
+    int digito;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    int temp = numero;
+
+    while (temp > 0) {
+        digito = temp % 10;
+        if (digito >= 8) {
+            esValido = false;
+        }
+        temp = temp / 10;
+    }
+
+    if (esValido) {
+        cout << "El numero es valido en base 8" << endl;
+    } else {
+        cout << "El numero es invalido en base 8" << endl;
+    }
+
+    return 0;
+}

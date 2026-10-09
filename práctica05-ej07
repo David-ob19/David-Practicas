@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    int sumaTotal;
+    int mayorCinco;
+    int totalApps;
+    int digito
+
+    cout << "Ingrese el numero de uso digital: ";
+    cin >> numero;
+
+    int temp = numero;
+
+    while (temp > 0) {
+        digito = temp % 10;
+        sumaTotal = sumaTotal + digito;
+        totalApps++;
+
+        if (digito > 5) {
+            mayorCinco++;
+        }
+
+        temp = temp / 10
+    }
+
+    float promedio = (float)sumaTotal / totalApps;
+
+    cout << "Total de horas: " << sumaTotal << endl;
+    cout << "Apps con mas de 5 horas: " << mayorCinco << endl;
+    cout << "Promedio de horas: " << promedio << endl;
+
+    return 0;
+}

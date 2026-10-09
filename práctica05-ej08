@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    int valorLimite;
+    int contadorPares;
+    int sumaDigitos;
+    int digito;
+
+    cout << "Ingrese el codigo numerico: ";
+    cin >> numero;
+
+    cout << "Ingrese el valor limite para la suma: ";
+    cin >> valorLimite;
+
+    int temp = numero;
+
+    while (temp > 0) {
+        digito = temp % 10;
+        sumaDigitos = sumaDigitos + digito;
+
+        if (digito % 2 == 0) {
+            contadorPares++;
+        }
+
+        temp = temp / 10;
+    }
+
+    if (contadorPares >= 2 && sumaDigitos > valorLimite) {
+        cout << "El codigo es SEGURO" << endl;
+    } else {
+        cout << "El codigo NO es seguro" << endl;
+    }
+
+    return 0;
+}

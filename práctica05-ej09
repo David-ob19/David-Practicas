@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int pin;
+    
+    cout << "Ingrese el PIN: ";
+    cin >> pin;
+
+    if (pin < 1000 || pin > 9999) {
+        cout << "PIN invalido (debe tener exactamente 4 digitos)" << endl;
+    } else {
+        int d4 = pin % 10;
+        int d3 = (pin / 10) % 10;
+        int d2 = (pin / 100) % 10
+        int d1 = pin / 1000;
+
+        if (d1 == d2 || d2 == d3 || d3 == d4) {
+            cout << "PIN invalido (tiene digitos repetidos consecutivos)" << endl;
+        } else {
+            cout << "PIN valido" << endl;
+        }
+    }
+
+    return 0;
+}

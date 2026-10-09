@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    int contadorPares = 0;
+    int digito;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    int temp = numero;
+
+    while (temp > 0) {
+        digito = temp % 10;
+        if (digito % 2 == 0) {
+            contadorPares++;
+        }
+        temp = temp / 10;
+    }
+
+    cout << "Cantidad de digitos pares: " << contadorPares << endl;
+
+    return 0;
+}

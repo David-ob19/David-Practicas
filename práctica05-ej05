@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    int complemento = 0;
+    int digito;
+    int pos = 1;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    int temp = numero;
+
+    while (temp > 0) {
+        digito = temp % 10;
+        int compDigito = 9 - digito;
+        complemento = complemento + (compDigito * pos);
+        pos = pos * 10;
+        temp = temp / 10;
+    }
+
+    cout << "El complemento a 9 es: " << complemento << endl;
+
+    return 0;
+}

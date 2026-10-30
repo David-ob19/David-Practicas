@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+void pedirCantidades(int &cantH, int &cantHQ, int &cantP, int &cantS) {
+    cout << "Cantidad de Hamburguesas (3 Bs): ";
+    cin >> cantH;
+    cout << "Cantidad de Hamburguesas con queso (5 Bs): ";
+    cin >> cantHQ;
+    cout << "Cantidad de Papas fritas (2 Bs): ";
+    cin >> cantP;
+    cout << "Cantidad de Soda (2.5 Bs): ";
+    cin >> cantS;
+}
+
+void mostrarFactura(int cantH, int cantHQ, int cantP, int cantS) {
+    float subtotalH = cantH * 3.0;
+    float subtotalHQ = cantHQ * 5.0;
+    float subtotalP = cantP * 2.0;
+    float subtotalS = cantS * 2.5;
+
+    float total = subtotalH + subtotalHQ + subtotalP + subtotalS;
+
+    cout << "\n----------------------------------------" << endl;
+    cout << "ITEM\t\t\tCANTIDAD\tTOTAL PARCIAL" << endl;
+    cout << "Hamburguesas (3Bs)\t" << cantH << "\t\t" << subtotalH << endl;
+    cout << "Hamburguesas c/q (5Bs)\t" << cantHQ << "\t\t" << subtotalHQ << endl;
+    cout << "Papas fritas (2Bs)\t" << cantP << "\t\t" << subtotalP << endl;
+    cout << "Soda (2.5Bs)\t\t" << cantS << "\t\t" << subtotalS << endl;
+    cout << "----------------------------------------" << endl;
+    cout << "TOTAL\t\t\t\t\t" << total << " Bs" << endl;
+}
+
+int main() {
+    int cantH, cantHQ, cantP, cantS;
+
+    pedirCantidades(cantH, cantHQ, cantP, cantS);
+    mostrarFactura(cantH, cantHQ, cantP, cantS);
+
+    return 0;
+}

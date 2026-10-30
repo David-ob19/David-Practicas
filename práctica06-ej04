@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+void pedirHora1(int &h1, int &m1, int &s1) {
+    cout << "--- Primer horario ---" << endl;
+    cout << "Hora: ";
+    cin >> h1;
+    cout << "Minutos: ";
+    cin >> m1;
+    cout << "Segundos: ";
+    cin >> s1;
+}
+
+void pedirHora2(int &h2, int &m2, int &s2) {
+    cout << "\n--- Segundo horario ---" << endl;
+    cout << "Hora: ";
+    cin >> h2;
+    cout << "Minutos: ";
+    cin >> m2;
+    cout << "Segundos: ";
+    cin >> s2;
+}
+
+void calcularDiferencia(int h1, int m1, int s1, int h2, int m2, int s2, int &restaH, int &restaM, int &restaS) {
+    int totalSegundos1 = (h1 * 3600) + (m1 * 60) + s1;
+    int totalSegundos2 = (h2 * 3600) + (m2 * 60) + s2;
+
+    int segundosSobrant = totalSegundos2 - totalSegundos1;
+
+    restaH = segundosSobrant / 3600;
+    segundosSobrant = segundosSobrant % 3600;
+
+    restaM = segundosSobrant / 60;
+    restaS = segundosSobrant % 60;
+}
+
+void mostrarHora(int h, int m, int s) {
+    cout << "\nTiempo transcurrido: " << h << ":" << m << ":" << s << endl;
+}
+
+int main() {
+    int h1, m1, s1;
+    int h2, m2, s2;
+    int restaH, restaM, restaS;
+
+    pedirHora1(h1, m1, s1);
+    pedirHora2(h2, m2, s2);
+
+    calcularDiferencia(h1, m1, s1, h2, m2, s2, restaH, restaM, restaS);
+
+    mostrarHora(restaH, restaM, restaS);
+
+    return 0;
+}

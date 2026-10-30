@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+void calcularNotaAlumno() {
+    float p1, p2, practico, examenFinal;
+    int faltas;
+
+    cout << "Ingrese la nota del Parcial 1 (0-100): ";
+    cin >> p1;
+    cout << "Ingrese la nota del Parcial 2 (0-100): ";
+    cin >> p2;
+    cout << "Ingrese la nota del Examen Practico (0-100): ";
+    cin >> practico;
+    cout << "Ingrese la nota del Examen Final (0-100): ";
+    cin >> examenFinal;
+    cout << "Ingrese el numero de faltas: ";
+    cin >> faltas;
+
+    float limiteFaltas = 48 * 0.20;
+
+    if (faltas > limiteFaltas) {
+        cout << "\nEl examen final se anula por exceder el 20% de faltas (Nota final: 0)." << endl;
+        cout << "Estado: Reprobado" << endl;
+    } 
+    else {
+        float promedioParciales = (p1 + p2) / 2.0;
+        float notaFinal = (promedioParciales * 0.40) + (practico * 0.20) + (examenFinal * 0.40);
+
+        cout << "\nNota final: " << notaFinal << endl;
+
+        if (notaFinal >= 51) {
+            cout << "Estado: Aprobado" << endl;
+        } else {
+            cout << "Estado: Reprobado" << endl;
+        }
+    }
+}
+
+int main() {
+    char respuesta;
+
+    do {
+        cout << "--- EVALUACION DE ALUMNO ---" << endl;
+        calcularNotaAlumno();
+
+        cout << "\n¿Desea calcular la nota de otro alumno? (s/n): ";
+        cin >> respuesta;
+        cout << endl;
+
+    } while (respuesta == 's' || respuesta == 'S');
+
+    return 0;
+}

@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+void pedirCoeficientes(float &a, float &b, float &c, float &d, float &e, float &f) {
+    cout << "Ingrese a: ";
+    cin >> a;
+    cout << "Ingrese b: ";
+    cin >> b;
+    cout << "Ingrese c: ";
+    cin >> c;
+    cout << "Ingrese d: ";
+    cin >> d;
+    cout << "Ingrese e: ";
+    cin >> e;
+    cout << "Ingrese f: ";
+    cin >> f;
+}
+
+void resolverSistema(float a, float b, float c, float d, float e, float f) {
+    float detS = (a * e) - (b * d);
+    float detX = (c * e) - (b * f);
+    float detY = (a * f) - (c * d);
+
+    if (detS != 0) {
+        float x = detX / detS;
+        float y = detY / detS;
+        cout << "\nTipo de solucion: Sistema Compatible Determinado (Solucion Unica)" << endl;
+        cout << "X = " << x << endl;
+        cout << "Y = " << y << endl;
+    } 
+    else {
+        if (detX == 0 && detY == 0) {
+            cout << "\nTipo de solucion: Sistema Compatible Indeterminado (Infinitas Soluciones)" << endl;
+        } 
+        else {
+            cout << "\nTipo de solucion: Sistema Incompatible (Sin Solucion)" << endl;
+        }
+    }
+}
+
+int main() {
+    float a, b, c, d, e, f;
+
+    pedirCoeficientes(a, b, c, d, e, f);
+    resolverSistema(a, b, c, d, e, f);
+
+    return 0;
+}

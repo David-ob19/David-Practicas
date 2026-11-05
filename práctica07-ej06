@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void LITERAL(int dia, int mes, int anio) {
+    string mesLiteral;
+
+    switch (mes) {
+        case 1:  mesLiteral = "Enero"; break;
+        case 2:  mesLiteral = "Febrero"; break;
+        case 3:  mesLiteral = "Marzo"; break;
+        case 4:  mesLiteral = "Abril"; break;
+        case 5:  mesLiteral = "Mayo"; break;
+        case 6:  mesLiteral = "Junio"; break;
+        case 7:  mesLiteral = "Julio"; break;
+        case 8:  mesLiteral = "Agosto"; break;
+        case 9:  mesLiteral = "Septiembre"; break;
+        case 10: mesLiteral = "Octubre"; break;
+        case 11: mesLiteral = "Noviembre"; break;
+        case 12: mesLiteral = "Diciembre"; break;
+        default: mesLiteral = "Mes invalido"; break;
+    }
+
+    int anioCompleto = (anio < 100) ? 1900 + anio : anio;
+
+    if (mes >= 1 && mes <= 12) {
+        cout << dia << " de " << mesLiteral << " de " << anioCompleto << endl;
+    } else {
+        cout << "Fecha invalida." << endl;
+    }
+}
+
+int main() {
+    int dia, mes, anio;
+
+    cout << "Ingrese el dia: ";
+    cin >> dia;
+    cout << "Ingrese el mes: ";
+    cin >> mes;
+    cout << "Ingrese el anio: ";
+    cin >> anio;
+
+    cout << "\nFecha en formato literal: ";
+    LITERAL(dia, mes, anio);
+
+    return 0;
+}

@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float POTEN(float x, float y) {
+    return pow(x, y);
+}
+
+long long FAC(int n) {
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    float x;
+    int n;
+
+    cout << "Ingrese el valor de X: ";
+    cin >> x;
+    cout << "Ingrese la cantidad de terminos N: ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "N debe ser mayor a 0." << endl;
+    } else {
+        float suma = 0;
+        int exponente = 1;
+        int signo = 1;
+
+        for (int i = 1; i <= n; i++) {
+            float termino = (POTEN(x, exponente) / FAC(exponente)) * signo;
+            suma += termino;
+            exponente += 2;
+            signo *= -1;
+        }
+
+        cout << "La suma de la serie es: " << suma << endl;
+    }
+
+    return 0;
+}

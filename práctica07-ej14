@@ -1,0 +1,67 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+bool esBisiesto(int anio) {
+    return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+}
+
+int diasEnMes(int mes, int anio) {
+    int diasPorMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (mes == 2 && esBisiesto(anio)) {
+        return 29;
+    }
+    return diasPorMes[mes];
+}
+
+long contarDiasTotal(int dia, int mes, int anio) {
+    long totalDias = 0;
+
+    for (int y = 1; y < anio; y++) {
+        totalDias += esBisiesto(y) ? 366 : 365;
+    }
+
+    for (int m = 1; m < mes; m++) {
+        totalDias += diasEnMes(m, anio);
+    }
+
+    totalDias += dia;
+
+    return totalDias;
+}
+
+void calcularDiasTranscurridos(int d1, int m1, int a1, int d2, int m2, int a2, long &dias) {
+    long fecha1Total = contarDiasTotal(d1, m1, a1);
+    long fecha2Total = contarDiasTotal(d2, m2, a2);
+    
+    dias = abs(fecha2Total - fecha1Total);
+}
+
+int main() {
+    int d1, m1, a1;
+    int d2, m2, a2;
+    long diasTranscurridos;
+
+    cout << "--- PRIMERA FECHA ---" << endl;
+    cout << "Dia: ";
+    cin >> d1;
+    cout << "Mes: ";
+    cin >> m1;
+    cout << "Anio: ";
+    cin >> a1;
+
+    cout << "\n--- SEGUNDA FECHA ---" << endl;
+    cout << "Dia: ";
+    cin >> d2;
+    cout << "Mes: ";
+    cin >> m2;
+    cout << "Anio: ";
+    cin >> a2;
+
+    calcularDiasTranscurridos(d1, m1, a1, d2, m2, a2, diasTranscurridos);
+
+    cout << "\nDias transcurridos entre ambas fechas: " << diasTranscurridos << " dias." << endl;
+
+    return 0;
+}

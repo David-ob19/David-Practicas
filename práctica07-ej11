@@ -1,0 +1,139 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+string unidadALiteral(int n) {
+    switch (n) {
+        case 1: return "un";
+        case 2: return "dos";
+        case 3: return "tres";
+        case 4: return "cuatro";
+        case 5: return "cinco";
+        case 6: return "seis";
+        case 7: return "siete";
+        case 8: return "ocho";
+        case 9: return "nueve";
+        default: return "";
+    }
+}
+
+string decenaALiteral(int n) {
+    if (n >= 10 && n <= 19) {
+        switch (n) {
+            case 10: return "diez";
+            case 11: return "once";
+            case 12: return "doce";
+            case 13: return "trece";
+            case 14: return "catorce";
+            case 15: return "quince";
+            case 16: return "dieciseis";
+            case 17: return "diecisiete";
+            case 18: return "dieciocho";
+            case 19: return "diecinueve";
+        }
+    }
+
+    int d = n / 10;
+    int u = n % 10;
+    string res = "";
+
+    switch (d) {
+        case 2: res = (u == 0) ? "veinte" : "veinti" + unidadALiteral(u); break;
+        case 3: res = "treinta"; break;
+        case 4: res = "cuarenta"; break;
+        case 5: res = "cincuenta"; break;
+        case 6: res = "sesenta"; break;
+        case 7: res = "setenta"; break;
+        case 8: res = "ochenta"; break;
+        case 9: res = "noventa"; break;
+    }
+
+    if (d > 2 && u > 0) {
+        res += " y " + unidadALiteral(u);
+    } else if (d == 0 && u > 0) {
+        res = unidadALiteral(u);
+    }
+
+    return res;
+}
+
+string centenaALiteral(int n) {
+    if (n == 100) return "cien";
+    
+    int c = n / 100;
+    int resto = n % 100;
+    string res = "";
+
+    switch (c) {
+        case 1: res = "ciento"; break;
+        case 2: res = "doscientos"; break;
+        case 3: res = "trescientos"; break;
+        case 4: res = "cuatrocientos"; break;
+        case 5: res = "quinientos"; break;
+        case 6: res = "seiscientos"; break;
+        case 7: res = "setecientos"; break;
+        case 8: res = "ochocientos"; break;
+        case 9: res = "novecientos"; break;
+    }
+
+    if (resto > 0) {
+        if (res != "") res += " ";
+        res += decenaALiteral(resto);
+    }
+
+    return res;
+}
+
+string enteroALiteral(int n) {
+    if (n == 0) return "cero";
+
+    int miles = n / 1000;
+    int resto = n % 1000;
+    string res = "";
+
+    if (miles > 0) {
+        if (miles == 1) {
+            res = "un mil";
+        } else {
+            res = unidadALiteral(miles) + " mil";
+        }
+    }
+
+    if (resto > 0) {
+        if (res != "") res += " ";
+        res += centenaALiteral(resto);
+    }
+
+    return res;
+}
+
+string convertirLiteral(float monto) {
+    int entero = (int)monto;
+    int decimales = round((monto - entero) * 100);
+
+    string textoEntero = enteroALiteral(entero);
+    
+    string textoDecimal = to_string(decimales);
+    if (decimales < 10) {
+        textoDecimal = "0" + textoDecimal;
+    }
+
+    return textoEntero + " " + textoDecimal + "/100 bolivianos";
+}
+
+int main() {
+    float monto;
+
+    cout << "Ingrese un monto (hasta 4 cifras con decimales): ";
+    cin >> monto;
+
+    if (monto < 0 || monto >= 10000) {
+        cout << "Monto fuera del rango permitido (0 a 9999.99)." << endl;
+    } else {
+        cout << "Literal: " << convertirLiteral(monto) << endl;
+    }
+
+    return 0;
+}

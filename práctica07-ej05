@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+void SISTEMA(float A, float B, float C, float D, float E, float F, float &X, float &Y) {
+    float det = (A * E) - (B * D);
+
+    if (det == 0) {
+        cout << "El sistema no tiene solucion unica (determinante es cero)." << endl;
+        X = 0;
+        Y = 0;
+    } else {
+        X = ((-C * E) - (B * -F)) / det;
+        Y = ((A * -F) - (-C * D)) / det;
+    }
+}
+
+int main() {
+    float A, B, C, D, E, F;
+    float X, Y;
+
+    cout << "Ingrese el coeficiente A: ";
+    cin >> A;
+    cout << "Ingrese el coeficiente B: ";
+    cin >> B;
+    cout << "Ingrese el coeficiente C: ";
+    cin >> C;
+    cout << "Ingrese el coeficiente D: ";
+    cin >> D;
+    cout << "Ingrese el coeficiente E: ";
+    cin >> E;
+    cout << "Ingrese el coeficiente F: ";
+    cin >> F;
+
+    SISTEMA(A, B, C, D, E, F, X, Y);
+
+    cout << "\nSolucion del sistema:" << endl;
+    cout << "X = " << X << endl;
+    cout << "Y = " << Y << endl;
+
+    return 0;
+}

@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+long long FAC(int n) {
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+long long Combi(int n, int r) {
+    long long C = FAC(n) / (FAC(r) * FAC(n - r));
+    return C;
+}
+
+int main() {
+    int n, r;
+
+    cout << "Ingrese el valor de n: ";
+    cin >> n;
+    cout << "Ingrese el valor de r: ";
+    cin >> r;
+
+    if (n < 0 || r < 0 || r > n) {
+        cout << "Valores invalidos. Debe cumplirse que n >= 0, r >= 0 y n >= r." << endl;
+    } else {
+        long long resultado = Combi(n, r);
+        cout << "El numero combinatorio es: " << resultado << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+long long FAC(int n) {
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int n;
+
+    cout << "Ingrese un numero entero: ";
+    cin >> n;
+
+    if (n < 0) {
+        cout << "El factorial no esta definido para numeros negativos." << endl;
+    } else {
+        long long resultado = FAC(n);
+        cout << "El factorial de " << n << " es: " << resultado << endl;
+    }
+
+    return 0;
+}

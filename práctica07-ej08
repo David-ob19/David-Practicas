@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void resolverCuadratica(float a, float b, float c) {
+    if (a == 0) {
+        cout << "No es una ecuacion cuadratica (a no puede ser 0)." << endl;
+        return;
+    }
+
+    float discriminante = (b * b) - (4 * a * c);
+
+    if (discriminante > 0) {
+        float x1 = (-b + sqrt(discriminante)) / (2 * a);
+        float x2 = (-b - sqrt(discriminante)) / (2 * a);
+        cout << "Tiene dos raices reales distintas:" << endl;
+        cout << "X1 = " << x1 << endl;
+        cout << "X2 = " << x2 << endl;
+    } 
+    else if (discriminante == 0) {
+        float x = -b / (2 * a);
+        cout << "Tiene una raiz doble (real):" << endl;
+        cout << "X = " << x << endl;
+    } 
+    else {
+        float parteReal = -b / (2 * a);
+        float parteImaginaria = sqrt(-discriminante) / (2 * a);
+        cout << "Tiene dos raices complejas:" << endl;
+        cout << "X1 = " << parteReal << " + " << parteImaginaria << "i" << endl;
+        cout << "X2 = " << parteReal << " - " << parteImaginaria << "i" << endl;
+    }
+}
+
+int main() {
+    float a, b, c;
+
+    cout << "Ingrese el coeficiente a: ";
+    cin >> a;
+    cout << "Ingrese el coeficiente b: ";
+    cin >> b;
+    cout << "Ingrese el coeficiente c: ";
+    cin >> c;
+
+    cout << "\nResultados:" << endl;
+    resolverCuadratica(a, b, c);
+
+    return 0;
+}

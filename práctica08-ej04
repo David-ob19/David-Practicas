@@ -1,0 +1,56 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(float v[], int n);
+void mostrarVector(float v[], int n);
+void invertirEnSegundoVector(float A[], float B[], int n);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n > 0): ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "El tamano debe ser mayor a 0." << endl;
+    } else {
+        float A[100];
+        float B[100];
+
+        leerVector(A, n);
+        
+        invertirEnSegundoVector(A, B, n);
+
+        cout << endl;
+        cout << "--- Vector Original (A) ---" << endl;
+        mostrarVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector Invertido (B) ---" << endl;
+        mostrarVector(B, n);
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+void invertirEnSegundoVector(float A[], float B[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        B[i] = A[n - 1 - i];
+    }
+}

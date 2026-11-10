@@ -1,0 +1,74 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(int v[], int n);
+void mostrarVector(int v[], int tam);
+bool existeEnVector(int v[], int tam, int val);
+int eliminarDuplicados(int A[], int n, int B[]);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n > 0): ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "El tamano debe ser mayor a 0." << endl;
+    } else {
+        int A[100];
+        int B[100];
+
+        leerVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector Original (A) ---" << endl;
+        mostrarVector(A, n);
+
+        int tamB = eliminarDuplicados(A, n, B);
+
+        cout << endl;
+        cout << "--- Vector sin Duplicados (B) ---" << endl;
+        mostrarVector(B, tamB);
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(int v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(int v[], int tam) {
+    for (int i = 0; i < tam; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+bool existeEnVector(int v[], int tam, int val) {
+    bool encontrado = false;
+    for (int i = 0; i < tam; i = i + 1) {
+        if (v[i] == val) {
+            encontrado = true;
+        }
+    }
+    return encontrado;
+}
+
+int eliminarDuplicados(int A[], int n, int B[]) {
+    int tamB = 0;
+
+    for (int i = 0; i < n; i = i + 1) {
+        if (!existeEnVector(B, tamB, A[i])) {
+            B[tamB] = A[i];
+            tamB = tamB + 1;
+        }
+    }
+
+    return tamB;
+}

@@ -1,0 +1,72 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(float v[], int tam);
+void mostrarVector(float v[], int tam);
+void concatenarVectores(float A[], int n, float B[], int m, float C[]);
+
+int main() {
+    int n, m;
+
+    cout << "Ingrese la cantidad de elementos del vector A (n > 0): ";
+    cin >> n;
+    cout << "Ingrese la cantidad de elementos del vector B (m > 0): ";
+    cin >> m;
+
+    if (n <= 0 || m <= 0) {
+        cout << "Los tamanos deben ser mayores a 0." << endl;
+    } else {
+        float A[100];
+        float B[100];
+        float C[200];
+
+        cout << endl;
+        cout << "--- Carga del Vector A ---" << endl;
+        leerVector(A, n);
+
+        cout << endl;
+        cout << "--- Carga del Vector B ---" << endl;
+        leerVector(B, m);
+
+        concatenarVectores(A, n, B, m, C);
+
+        cout << endl;
+        cout << "--- Vector A ---" << endl;
+        mostrarVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector B ---" << endl;
+        mostrarVector(B, m);
+
+        cout << endl;
+        cout << "--- Vector C (Concatenado A + B) ---" << endl;
+        mostrarVector(C, n + m);
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(float v[], int tam) {
+    for (int i = 0; i < tam; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(float v[], int tam) {
+    for (int i = 0; i < tam; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+void concatenarVectores(float A[], int n, float B[], int m, float C[]) {
+    for (int i = 0; i < n; i = i + 1) {
+        C[i] = A[i];
+    }
+    for (int j = 0; j < m; j = j + 1) {
+        C[n + j] = B[j];
+    }
+}

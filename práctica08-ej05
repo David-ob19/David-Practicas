@@ -1,0 +1,60 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(int v[], int n);
+void mostrarVector(int v[], int n);
+bool esCapicua(int v[], int n);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n > 0): ";https://github.com/David-ob19/David-Practicas/tree/main
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "El tamano debe ser mayor a 0." << endl;
+    } else {
+        int A[100];
+
+        leerVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector Ingresado ---" << endl;
+        mostrarVector(A, n);
+
+        cout << endl;
+        if (esCapicua(A, n)) {
+            cout << "El vector ES capicua." << endl;
+        } else {
+            cout << "El vector NO es capicua." << endl;
+        }
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(int v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(int v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+bool esCapicua(int v[], int n) {
+    bool capicua = true;
+    for (int i = 0; i < n / 2; i = i + 1) {
+        if (v[i] != v[n - 1 - i]) {
+            capicua = false;
+        }
+    }
+    return capicua;
+}

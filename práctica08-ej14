@@ -1,0 +1,61 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(float v[], int n);
+void mostrarVector(float v[], int n);
+void ordenarBurbuja(float v[], int n);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n > 0): ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "El tamano debe ser mayor a 0." << endl;
+    } else {
+        float A[100];
+
+        leerVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector Original ---" << endl;
+        mostrarVector(A, n);
+
+        ordenarBurbuja(A, n);
+
+        cout << endl;
+        cout << "--- Vector Ordenado Ascendentemente ---" << endl;
+        mostrarVector(A, n);
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+void ordenarBurbuja(float v[], int n) {
+    for (int i = 0; i < n - 1; i = i + 1) {
+        for (int j = 0; j < n - 1 - i; j = j + 1) {
+            if (v[j] > v[j + 1]) {
+                float aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+            }
+        }
+    }
+}

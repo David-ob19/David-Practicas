@@ -1,0 +1,69 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(float v[], int n);
+void mostrarVector(float v[], int n);
+int buscarElemento(float v[], int n, float buscado);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n > 0): ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "El tamano debe ser mayor a 0." << endl;
+    } else {
+        float A[100];
+        float buscado;
+
+        leerVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector Ingresado ---" << endl;
+        mostrarVector(A, n);
+
+        cout << endl;
+        cout << "Ingrese el valor a buscar: ";
+        cin >> buscado;
+
+        int posicion = buscarElemento(A, n, buscado);
+
+        cout << endl;
+        if (posicion != -1) {
+            cout << "El elemento " << buscado << " se encuentra en el indice: " << posicion << endl;
+        } else {
+            cout << "El elemento " << buscado << " no se encuentra en el vector." << endl;
+        }
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+int buscarElemento(float v[], int n, float buscado) {
+    int pos = -1;
+
+    for (int i = 0; i < n; i = i + 1) {
+        if (v[i] == buscado && pos == -1) {
+            pos = i;
+        }
+    }
+
+    return pos;
+}

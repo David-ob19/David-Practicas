@@ -1,0 +1,79 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerNotas(float v[], int n);
+void mostrarVector(float v[], int n);
+void ordenarDescendente(float v[], int n);
+void obtenerTresMejores(float notas[], int n, float mejores[]);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de notas (n >= 3): ";
+    cin >> n;
+
+    if (n < 3) {
+        cout << "Debe ingresar al menos 3 notas." << endl;
+    } else {
+        float notas[100];
+        float mejores[3];
+
+        leerNotas(notas, n);
+
+        cout << endl;
+        cout << "--- Listado Completo de Notas ---" << endl;
+        mostrarVector(notas, n);
+
+        obtenerTresMejores(notas, n, mejores);
+
+        cout << endl;
+        cout << "--- Las Tres Mejores Notas ---" << endl;
+        for (int i = 0; i < 3; i = i + 1) {
+            cout << "Nota " << i + 1 << ": " << mejores[i] << endl;
+        }
+    }
+
+    getch();
+    return 0;
+}
+
+void leerNotas(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese la nota [" << i + 1 << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+void ordenarDescendente(float v[], int n) {
+    for (int i = 0; i < n - 1; i = i + 1) {
+        for (int j = 0; j < n - 1 - i; j = j + 1) {
+            if (v[j] < v[j + 1]) {
+                float aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+            }
+        }
+    }
+}
+
+void obtenerTresMejores(float notas[], int n, float mejores[]) {
+    float copia[100];
+
+    for (int i = 0; i < n; i = i + 1) {
+        copia[i] = notas[i];
+    }
+
+    ordenarDescendente(copia, n);
+
+    for (int i = 0; i < 3; i = i + 1) {
+        mejores[i] = copia[i];
+    }
+}

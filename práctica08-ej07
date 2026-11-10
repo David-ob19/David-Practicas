@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+#include <conio.h>
+
+using namespace std;
+
+void inicializarNombres(string nombres[]);
+string convertirNumeroALetras(string nombres[], int num);
+
+int main() {
+    int numero;
+    string nombres[21];
+
+    inicializarNombres(nombres);
+
+    cout << "Ingrese un numero entero (0 - 20): ";
+    cin >> numero;
+
+    cout << endl;
+    if (numero < 0 || numero > 20) {
+        cout << "El numero debe estar comprendido entre 0 y 20." << endl;
+    } else {
+        string resultado = convertirNumeroALetras(nombres, numero);
+        cout << "El numero " << numero << " en letras es: " << resultado << endl;
+    }
+
+    getch();
+    return 0;
+}
+
+void inicializarNombres(string nombres[]) {
+    nombres[0] = "CERO";
+    nombres[1] = "UNO";
+    nombres[2] = "DOS";
+    nombres[3] = "TRES";
+    nombres[4] = "CUATRO";
+    nombres[5] = "CINCO";
+    nombres[6] = "SEIS";
+    nombres[7] = "SIETE";
+    nombres[8] = "OCHO";
+    nombres[9] = "NUEVE";
+    nombres[10] = "DIEZ";
+    nombres[11] = "ONCE";
+    nombres[12] = "DOCE";
+    nombres[13] = "TRECE";
+    nombres[14] = "CATORCE";
+    nombres[15] = "QUINCE";
+    nombres[16] = "DIECISEIS";
+    nombres[17] = "DIECISIETE";
+    nombres[18] = "DIECIOCHO";
+    nombres[19] = "DIECINUEVE";
+    nombres[20] = "VEINTE";
+}
+
+string convertirNumeroALetras(string nombres[], int num) {
+    return nombres[num];
+}

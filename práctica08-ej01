@@ -1,0 +1,59 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(float v[], int n);
+void mostrarVector(float v[], int n);
+float obtenerMaximo(float v[], int n);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n > 0): ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "El tamaño debe ser mayor a 0." << endl;
+    } else {
+        float A[100];
+
+        leerVector(A, n);
+        
+        cout << endl;
+        cout << "--- Vector Ingresado ---" << endl;
+        mostrarVector(A, n);
+
+        float maximo = obtenerMaximo(A, n);
+        cout << endl;
+        cout << "El valor maximo del vector es: " << maximo << endl;
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+float obtenerMaximo(float v[], int n) {
+    float max = v[0];
+
+    for (int i = 1; i < n; i = i + 1) {
+        if (v[i] > max) {
+            max = v[i];
+        }
+    }
+
+    return max;
+}

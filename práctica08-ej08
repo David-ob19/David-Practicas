@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cmath>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(float v[], int n);
+void mostrarVector(float v[], int n);
+float obtenerMayorDiferencia(float A[], int n, float &elem1, float &elem2);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n >= 2): ";
+    cin >> n;
+
+    if (n < 2) {
+        cout << "El tamano debe ser mayor o igual a 2." << endl;
+    } else {
+        float A[100];
+        float elem1, elem2;
+
+        leerVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector Ingresado ---" << endl;
+        mostrarVector(A, n);
+
+        float mayorDif = obtenerMayorDiferencia(A, n, elem1, elem2);
+
+        cout << endl;
+        cout << "La mayor diferencia absoluta es: " << mayorDif << endl;
+        cout << "Producida por los elementos: " << elem1 << " y " << elem2 << endl;
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(float v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+float obtenerMayorDiferencia(float A[], int n, float &elem1, float &elem2) {
+    float maxDif = abs(A[1] - A[0]);
+    elem1 = A[0];
+    elem2 = A[1];
+
+    for (int i = 1; i < n - 1; i = i + 1) {
+        float difActual = abs(A[i + 1] - A[i]);
+        if (difActual > maxDif) {
+            maxDif = difActual;
+            elem1 = A[i];
+            elem2 = A[i + 1];
+        }
+    }
+
+    return maxDif;
+}

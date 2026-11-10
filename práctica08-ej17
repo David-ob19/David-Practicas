@@ -1,0 +1,68 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void leerVector(int v[], int n);
+void mostrarVector(int v[], int n);
+void calcularFrecuencias(int v[], int n);
+
+int main() {
+    int n;
+
+    cout << "Ingrese la cantidad de elementos (n > 0): ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "El tamano debe ser mayor a 0." << endl;
+    } else {
+        int A[100];
+
+        leerVector(A, n);
+
+        cout << endl;
+        cout << "--- Vector Ingresado ---" << endl;
+        mostrarVector(A, n);
+
+        cout << endl;
+        cout << "--- Frecuencia de Elementos ---" << endl;
+        calcularFrecuencias(A, n);
+    }
+
+    getch();
+    return 0;
+}
+
+void leerVector(int v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "Ingrese el elemento [" << i << "]: ";
+        cin >> v[i];
+    }
+}
+
+void mostrarVector(int v[], int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        cout << "v[" << i << "] = " << v[i] << endl;
+    }
+}
+
+void calcularFrecuencias(int v[], int n) {
+    bool procesado[100];
+
+    for (int i = 0; i < n; i = i + 1) {
+        procesado[i] = false;
+    }
+
+    for (int i = 0; i < n; i = i + 1) {
+        if (!procesado[i]) {
+            int contador = 1;
+            for (int j = i + 1; j < n; j = j + 1) {
+                if (v[i] == v[j]) {
+                    contador = contador + 1;
+                    procesado[j] = true;
+                }
+            }
+            cout << "El elemento " << v[i] << " aparece " << contador << " vez/veces." << endl;
+        }
+    }
+}
